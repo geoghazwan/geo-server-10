@@ -8,8 +8,8 @@
     "tsc": "tsc",
     "watch-tsc": "tsc ",
     "deploy": "node dist/src/server.js",
-    "watch-deploy": "nodemon dist/src/server.js",
-    "server": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\"",
+    "watch-deploy": "node ./dist/src/server.js",
+    "server": "concurrently \"fuser -k 3000/tcp\" \"npm run watch-tsc\" \"npm run watch-deploy\"",
     "start": "npm run deploy",
     "heroku-postbuild": "npm run tsc"
   },
