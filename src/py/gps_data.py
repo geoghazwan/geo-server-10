@@ -14,9 +14,11 @@ return raw_data
 
 import gps
 import time
+import json
 session = gps.gps('127.0.0.1', '2947')
 session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
 time.sleep(0.5)
 raw_data = session.next()
-print(raw_data)
+with open('data.json', 'w') as f:
+    json.dump(raw_data, f)
