@@ -23,7 +23,7 @@ router.post("/create", async (req: Request, res: Response) => {
 router.get("/", async (_, res: Response) => {
   try {
     const locations = await Location.find();
-    await runScript(pythonScripts.getLocation);
+    // await runScript(pythonScripts.getLocation);
     res.status(200).send({ result: locations });
   } catch (error) {
     console.error("error" + error);
