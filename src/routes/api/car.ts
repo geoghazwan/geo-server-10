@@ -1,7 +1,8 @@
 import { Router, Response } from "express";
 import Request from "../../types/Request";
 import Car, { ICar } from "../../models/Car";
-
+import { pythonScripts } from "../../scripts";
+import { runScript } from "../../utils/runScript";
 const router: Router = Router();
 
 const santisizeCar = (payload: ICar): ICar => {
@@ -21,6 +22,13 @@ router.post("/create", async (req: Request, res: Response) => {
 router.get("/", async (_, res: Response) => {
   try {
     const car = await Car.find();
+    runScript(pythonScripts.getLocation)
+      .then((result) => {
+        console.log({ result });
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
     res.status(200).send({ result: car });
   } catch (error) {
     console.error("error" + error);
