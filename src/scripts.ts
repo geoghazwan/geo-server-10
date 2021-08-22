@@ -1,4 +1,3 @@
 export const pythonScripts = {
-  getLocation: "ls",
-  m: "1",
+  getLocation: "cd ./src/py && python2 ./gps_data.py",
 };

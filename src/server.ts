@@ -16,12 +16,13 @@ app.set("port", process.env.PORT || 5000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 /** Registr Routes */
+
 app.use("/api/location", location);
 app.use("/api/car", car);
 /** Run The App */
 const port = app.get("port");
-const server = app.listen(port, () =>
-  console.log(`Server started on port ${port}`)
+const server = app.listen(3000, () =>
+  console.log(`Server started on port ${3000}`)
 );
 
 export default server;
