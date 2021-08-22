@@ -22,14 +22,8 @@ router.post("/create", async (req: Request, res: Response) => {
 router.get("/", async (_, res: Response) => {
   try {
     const car = await Car.find();
-    runScript(pythonScripts.getLocation)
-      .then((result) => {
-        console.log({ result });
-      })
-      .catch((error) => {
-        console.log({ error });
-      });
-    res.status(200).send({ result: car });
+    const aa = await runScript(pythonScripts.getLocation);
+    res.status(200).send({ result: aa });
   } catch (error) {
     console.error("error" + error);
     res.status(500).send(error);
