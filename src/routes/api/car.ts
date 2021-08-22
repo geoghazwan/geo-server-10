@@ -21,7 +21,6 @@ router.post("/create", async (req: Request, res: Response) => {
 
 router.get("/", async (_, res: Response) => {
   try {
-    const car = await Car.find();
     const aa = await runScript(pythonScripts.getLocation);
     res.status(200).send({ result: aa });
   } catch (error) {
