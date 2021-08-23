@@ -3,7 +3,7 @@ const exec = promisify(require("child_process").exec);
 import { PythonShell } from "python-shell";
 
 export const runScript = async (script: string): Promise<void> => {
-  const output = await exec("python ./py.py");
+  const output = await exec("python ./py2.py");
   console.log({ ooooooooo: output });
   return output;
 };
