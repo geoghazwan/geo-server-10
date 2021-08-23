@@ -8,5 +8,5 @@ gps.on("data", function (data) {
 });
 
 port.on("data", function (data) {
-  console.log({ data });
+  gps.update(data);
 });
