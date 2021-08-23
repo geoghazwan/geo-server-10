@@ -1,7 +1,7 @@
 import { Router, Response } from "express";
 import Request from "../../types/Request";
 import Location, { ILocation } from "../../models/Location";
-import { runScript, runPy } from "../../utils/runScript";
+import { runScript } from "../../utils/runScript";
 import { pythonScripts } from "../../scripts";
 
 const router: Router = Router();
@@ -22,7 +22,7 @@ router.post("/create", async (req: Request, res: Response) => {
 
 router.get("/", async (_, res: Response) => {
   try {
-    console.log("ppppppppppppppppp");
+    console.log("www");
     await runScript("");
     res.send({});
   } catch (error) {
