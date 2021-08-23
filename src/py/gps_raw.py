@@ -4,6 +4,7 @@ session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
  
 while True:
 	try:
+		sleep()
 		report = session.next()
 		print report
 		quit()

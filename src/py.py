@@ -8,8 +8,10 @@ def main():
         session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
         raw_data = session.next()
         if raw_data["class"] == "TPV":
-            print raw_data
-            quit()
+            if hasattr(raw_data, 'lat') and hasattr(raw_data, 'lon') and hasattr(raw_data, 'speed'):
+                print raw_data
+                quit()
+
 
 
 if __name__ == "__main__":
