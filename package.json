@@ -24,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.7",
     "onoff": "^6.0.3",
+    "python-shell": "^3.0.0",
     "request": "^2.88.0",
     "serialport": "^9.2.0",
     "typescript": "^3.4.5"
