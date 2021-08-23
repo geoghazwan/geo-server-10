@@ -6,6 +6,7 @@ while True:
 	try:
 		report = session.next()
 		print report
+		quit()
 	except KeyError:
 		pass
 	except KeyboardInterrupt:
