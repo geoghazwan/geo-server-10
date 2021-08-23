@@ -24,7 +24,14 @@ while True:
 	except StopIteration:B=None;D('No incoming data from the GPS module')`;
 
 export const runPy = () => {
-  PythonShell.runString(script, {}, (error: any, output: any) => {
-    console.log({ error, output });
-  });
+  PythonShell.runString(
+    script,
+    {
+      mode: "text",
+      pythonOptions: ["-u"], // get print results in real-time
+    },
+    (error: any, output: any) => {
+      console.log({ fuuu: error, output });
+    }
+  );
 };
