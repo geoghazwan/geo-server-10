@@ -1,6 +1,9 @@
 const { model, Schema } = require("mongoose");
 
 const CarSchema = new Schema({
+  name: {
+    type: String,
+  },
   registerationDte: {
     type: { long: Date, default: Date.now },
     required: true,
@@ -15,6 +18,10 @@ const CarSchema = new Schema({
   },
   destination: {
     type: Schema.Types.ObjectId,
+    ref: "Location",
+  },
+  blacklistedLocation: {
+    type: [Schema.Types.ObjectId],
     ref: "Location",
   },
 });
