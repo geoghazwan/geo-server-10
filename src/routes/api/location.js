@@ -1,5 +1,5 @@
 const { Router, Response } = require("express");
-const { getGps } = require("../../utils/getGps");
+const getGps = require("../../utils/getGps");
 const Location = require("../../models/Location");
 
 const router = Router();

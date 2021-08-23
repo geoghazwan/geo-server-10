@@ -9,4 +9,6 @@ const getGPS = async (script) => {
   return output.stdout.replace("\n", "");
 };
 
-module.exports = { getGPS };
+getGPS.then(console.log).catch(console.log);
+
+module.exports = getGPS;
