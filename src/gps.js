@@ -11,5 +11,5 @@ gps.on("data", function (data) {
 });
 
 port.on("data", function (data) {
-  gps.update(data);
+  console.log({ data });
 });
