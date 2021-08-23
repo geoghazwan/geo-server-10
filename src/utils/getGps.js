@@ -9,6 +9,6 @@ async function getGPS(script) {
   return output.stdout.replace("\n", "");
 }
 
-getGPS.then(console.log).catch(console.log);
+getGPS("lat").then(console.log).catch(console.log);
 
 module.exports = getGPS;
