@@ -10,7 +10,7 @@ export const runScript = async (script: string): Promise<void> => {
 };
 
 export const runPy = () => {
-  PythonShell.runString("print 1", {}, (error: any, output: any) => {
+  PythonShell.runString("print(1)", {}, (error: any, output: any) => {
     console.log({ error, output });
   });
 };
