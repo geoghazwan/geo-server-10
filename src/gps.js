@@ -11,5 +11,5 @@ port.pipe(parser);
 // });
 
 port.on("data", function (data) {
-  gps.update(data);
+  console.log({ dddddddd: data });
 });
