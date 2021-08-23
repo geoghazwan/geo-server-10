@@ -9,10 +9,6 @@ async function getGPS(script) {
   return output.stdout.replace("\n", "");
 }
 
-getGPS("lat")
-  .then(console.log)
-  .catch((e) => console.log({ errror: e }));
-
 const getAllData = async function () {
   const data = Promise.all(async () => {
     try {
