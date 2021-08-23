@@ -1,10 +1,10 @@
-import config from "config";
-import { ConnectionOptions, connect } from "mongoose";
+const config = require("config");
+const { connect } = require("mongoose");
 
-const connectDB = async () => {
+module.exports = async () => {
   try {
-    const mongoURI: string = config.get("mongoURI");
-    const options: ConnectionOptions = {
+    const mongoURI = config.get("mongoURI");
+    const options = {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
@@ -18,5 +18,3 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
-
-export default connectDB;

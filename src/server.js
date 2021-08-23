@@ -1,11 +1,11 @@
 /** Libraries */
-import bodyParser from "body-parser";
-import express from "express";
+const bodyParser = require("body-parser");
+const express = require("express");
 /** Database */
-import connectDB from "../config/database";
+const connectDB = require("../config/database");
 /** Routes */
-import location from "./routes/api/location";
-import car from "./routes/api/car";
+const location = require("./routes/api/location");
+const car = require("./routes/api/car");
 
 /** Server Instance */
 const app = express();
@@ -20,9 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api/location", location);
 app.use("/api/car", car);
 /** Run The App */
-const port = app.get("port");
+
 const server = app.listen(3000, () =>
   console.log(`Server started on port ${3000}`)
 );
 
-export default server;
+module.exports = server;
