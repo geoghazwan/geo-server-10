@@ -2,7 +2,7 @@ var SerialPort = require("serialport");
 var port = new SerialPort.SerialPort("/dev/ttyUSB1", {
   // change path
   baudrate: 4800,
-  parser: SerialPort.parsers.readline("\r\n"),
+  parser: SerialPort.parsers.Readline,
 });
 
 var GPS = require("gps");
