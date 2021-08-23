@@ -22,7 +22,7 @@ router.post("/create", async (req: Request, res: Response) => {
 
 router.get("/", async (_, res: Response) => {
   try {
-    runPy();
+    await runScript("");
     console.log("hit");
     res.send({});
   } catch (error) {
