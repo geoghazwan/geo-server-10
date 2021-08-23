@@ -5,6 +5,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 
 while True:
+    GPIO.setwarnings(False)
     GPIO.output(11, 1)
     quit()
 
