@@ -22,8 +22,8 @@ router.post("/create", async (req: Request, res: Response) => {
 
 router.get("/", async (_, res: Response) => {
   try {
+    console.log("ppppppppppppppppp");
     await runScript("");
-    console.log("hit");
     res.send({});
   } catch (error) {
     console.error("error" + error);
