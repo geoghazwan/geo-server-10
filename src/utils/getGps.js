@@ -9,6 +9,30 @@ async function getGPS(script) {
   return output.stdout.replace("\n", "");
 }
 
-getGPS("lat").then(console.log).catch(console.log);
+getGPS("lat")
+  .then(console.log)
+  .catch((e) => console.log({ errror: e }));
+
+const getAllData = async function () {
+  const data = Promise.all(async () => {
+    try {
+      const lat = await getGPS("lat");
+      const lon = await getGPS("lon");
+      const speed = await getGPS("speed");
+      console.log({ lat, lon, speed });
+      return { lat, lon, speed };
+    } catch (error) {
+      console.log({ Error: error });
+    }
+  });
+};
+
+getAllData()
+  .then((data) => {
+    console.log({ ddddd: data });
+  })
+  .catch((error) => {
+    console.log({ error: error });
+  });
 
 module.exports = getGPS;
