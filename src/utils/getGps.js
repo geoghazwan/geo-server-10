@@ -10,17 +10,15 @@ async function getGPS(script) {
 }
 
 const getAllData = async function () {
-  const data = Promise.all(async () => {
-    try {
-      const lat = await getGPS("lat");
-      const lon = await getGPS("lon");
-      const speed = await getGPS("speed");
-      console.log({ lat, lon, speed });
-      return { lat, lon, speed };
-    } catch (error) {
-      console.log({ Error: error });
-    }
-  });
+  try {
+    const lat = await getGPS("lat");
+    const lon = await getGPS("lon");
+    const speed = await getGPS("speed");
+    console.log({ lat, lon, speed });
+    return { lat, lon, speed };
+  } catch (error) {
+    console.log({ Error: error });
+  }
 };
 
 getAllData()
