@@ -1,3 +1,3 @@
 export const pythonScripts = {
-  getLocation: "cd ./src/py && python ./lat.py",
+  getLocation: "./src/py/lat.py",
 };

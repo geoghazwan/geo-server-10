@@ -1,7 +1,7 @@
 import { Router, Response } from "express";
 import Request from "../../types/Request";
 import Location, { ILocation } from "../../models/Location";
-import { runScript } from "../../utils/runScript";
+import { runScript, runPy } from "../../utils/runScript";
 import { pythonScripts } from "../../scripts";
 
 const router: Router = Router();
@@ -23,7 +23,15 @@ router.post("/create", async (req: Request, res: Response) => {
 router.get("/", async (_, res: Response) => {
   try {
     await runScript(pythonScripts.getLocation);
+    runPy
+      .then((data) => {
+        console.log({ data: data });
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
     console.log("hit");
+    res.send({});
   } catch (error) {
     console.error("error" + error);
     res.status(500).send(error);

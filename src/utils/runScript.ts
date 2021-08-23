@@ -7,3 +7,16 @@ export const runScript = async (script: string): Promise<void> => {
   console.log({ ooooooooo: output });
   return output;
 };
+
+export const runPy = new Promise(function (success, nosuccess) {
+  const { spawn } = require("child_process");
+  const pyprog = spawn("python", ["./../pypy.py"]);
+
+  pyprog.stdout.on("data", function (data: any) {
+    success(data);
+  });
+
+  pyprog.stderr.on("data", (data: any) => {
+    nosuccess(data);
+  });
+});
