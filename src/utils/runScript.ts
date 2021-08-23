@@ -9,6 +9,20 @@ export const runScript = async (script: string): Promise<void> => {
   return output;
 };
 
+const script = `E=quit
+D=print
+import gps as A,time
+B=A.gps('127.0.0.1','2947')
+B.stream(A.WATCH_ENABLE|A.WATCH_NEWSTYLE)
+while True:
+	try:
+		time.sleep(0.5);C=B.next()
+		if C['class']=='TPV':
+			if hasattr(C,'lat'):D(str(C.lat));E()
+	except KeyError:pass
+	except KeyboardInterrupt:E()
+	except StopIteration:B=None;D('No incoming data from the GPS module')`;
+
 export const runPy = () => {
   PythonShell.runString("print(1)", {}, (error: any, output: any) => {
     console.log({ error, output });

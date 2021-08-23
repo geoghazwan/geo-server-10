@@ -9,7 +9,7 @@ while True:
         raw_data = session.next()
         if raw_data['class'] == 'TPV':
                 if hasattr(raw_data, 'lat'):
-                        print str(raw_data.lat)
+                        print(str(raw_data.lat))
                         quit()
 
     except KeyError:
