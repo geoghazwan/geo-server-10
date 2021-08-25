@@ -2,6 +2,9 @@ const { Router } = require("express");
 const Car = require("../../models/Car");
 const Driver = require("../../models/Driver");
 const Location = require("../../models/Location");
+const startCar = require("../../utils/startCar");
+const stopCar = require("../../utils/stopCar");
+const { getAllData } = require("../../utils/getGps");
 
 const router = Router();
 
@@ -16,6 +19,43 @@ router.post("/create", async (req, res) => {
   /** Save It In Database */
   await car.save();
   /** Send It Back To The User */
+  res.status(200).send(car);
+});
+
+router.post("/start", async (req, res) => {
+  const { lat, lon, speed } = await getAllData();
+  await startCar();
+  const location = new Location({
+    geo: { lat, long: lon },
+    speed,
+    date: new Date(),
+  });
+  await location.save();
+  const destination = new Location({
+    geo: { lat: req.body.lat, long: req.body.lon },
+    speed,
+    date: new Date(),
+  });
+  await destination.save();
+  const car = await Car.findById(req.body.id);
+  car.lastLocation = car.currentLocation;
+  car.currentLocation = location._id;
+  car.destination = destination._id;
+  await car.save();
+  res.status(200).send(car);
+});
+
+router.post("/stop", async (req, res) => {
+  await stopCar();
+  const { lat, lon, speed } = await getAllData();
+  const location = new Location({
+    geo: { lat, long: lon },
+    speed,
+    date: new Date(),
+  });
+  const car = await Car.findById(req.body.id);
+  car.currentLocation = location._id;
+  await car.save();
   res.status(200).send(car);
 });
 

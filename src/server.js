@@ -1,6 +1,7 @@
 /** Libraries */
 const bodyParser = require("body-parser");
 const express = require("express");
+const cors = require("cors");
 /** Database */
 const connectDB = require("../config/database");
 /** Routes */
@@ -14,7 +15,10 @@ const app = express();
 /** Database Connection */
 connectDB();
 /** Global Middlewares */
-app.set("port", process.env.PORT || 5000);
+console.log({ aa: cors() });
+app.use(cors());
+app.options("*", cors());
+app.set("port", process.env.PORT || port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 /** Registr Routes */
