@@ -1,8 +1,14 @@
+const { promisify } = require("util");
+const exec = promisify(require("child_process").exec);
+const path = require("path");
+
 async function stopCar() {
-  const output = await exec(
-    `python ${path.resolve(__dirname, "stop" + ".py")}`
-  );
-  return output.stdout.replace("\n", "");
+  try {
+    const output = await exec(
+      `python ${path.resolve(__dirname, "stop" + ".py")}`
+    );
+    return output.stdout.replace("\n", "");
+  } catch {}
 }
 
 module.exports = stopCar;

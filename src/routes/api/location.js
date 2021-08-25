@@ -5,7 +5,10 @@ const Location = require("../../models/Location");
 const router = Router();
 
 const santisizeLocation = (payload) => {
-  return { ...payload, date: new Date() };
+  return {
+    ...payload,
+    date: new Date(),
+  };
 };
 
 router.post("/create", async (req, res) => {

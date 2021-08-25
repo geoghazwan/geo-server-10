@@ -14,10 +14,9 @@ const getAllData = async function () {
     const lat = await getGPS("lat");
     const lon = await getGPS("lon");
     const speed = await getGPS("speed");
-    console.log({ lat, lon, speed });
     return { lat, lon, speed };
   } catch (error) {
-    return { lat: "33.493987191377556", lon: "36.31745004694769" };
+    return { lat: "33.493987191377556", lon: "36.31745004694769", speed: 10 };
   }
 };
 

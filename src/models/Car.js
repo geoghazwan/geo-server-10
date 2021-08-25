@@ -13,7 +13,6 @@ const CarSchema = new Schema({
   },
   registerationDte: {
     type: { long: Date, default: Date.now },
-    required: true,
   },
   lastLocation: {
     type: Schema.Types.ObjectId,
@@ -22,6 +21,9 @@ const CarSchema = new Schema({
   currentLocation: {
     type: Schema.Types.ObjectId,
     ref: "Location",
+  },
+  contractExpiration: {
+    type: Date,
   },
   destination: {
     type: Schema.Types.ObjectId,

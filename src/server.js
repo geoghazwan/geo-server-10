@@ -15,7 +15,6 @@ const app = express();
 /** Database Connection */
 connectDB();
 /** Global Middlewares */
-console.log({ aa: cors() });
 app.use(cors());
 app.options("*", cors());
 app.set("port", process.env.PORT || port);
