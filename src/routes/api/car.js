@@ -4,13 +4,27 @@ const Driver = require("../../models/Driver");
 const Location = require("../../models/Location");
 const startCar = require("../../utils/startCar");
 const stopCar = require("../../utils/stopCar");
+const captue = require("../../utils/capture");
 const { getAllData } = require("../../utils/getGps");
+const path = require("path");
+const capture = require("../../utils/capture");
 
 const router = Router();
 
 const santisizeCar = (payload) => {
   return { ...payload, registerationDte: new Date() };
 };
+
+router.get("/path/:id", async (req, res) => {
+  const car = new Car.findById(req.params.id);
+  res.status(200).send({ from: car.lastLocation, to: car.currentLocation });
+});
+
+router.get("/capture", async (req, res) => {
+  // await capture();
+  const result = path.resolve(__dirname, "../../utils/image.jpg");
+  res.sendFile(result);
+});
 
 router.post("/create", async (req, res) => {
   const payload = santisizeCar(req.body);
