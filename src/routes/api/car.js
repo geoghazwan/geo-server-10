@@ -1,5 +1,8 @@
-const { Router, Response } = require("express");
+const { Router } = require("express");
 const Car = require("../../models/Car");
+const Driver = require("../../models/Driver");
+const Location = require("../../models/Location");
+
 const router = Router();
 
 const santisizeCar = (payload) => {
@@ -18,11 +21,19 @@ router.post("/create", async (req, res) => {
 
 router.get("/", async (_, res) => {
   try {
-    const aa = await runScript(pythonScripts.getLocation);
-    res.status(200).send({ result: aa });
+    const result = await Car.find();
+    const cars = await Promise.all(
+      result.map(async (r) => {
+        const driver = await Driver.findById(r.driver);
+        console.log({ driver });
+        const destination = await Location.findById(r.destination);
+        console.log({ destination });
+        return { ...r._doc, driver: driver, destination };
+      })
+    );
+    res.status(200).send({ result: cars });
   } catch (error) {
-    console.error("error" + error);
-    res.status(500).send(error);
+    res.status(500).send({ error });
   }
 });
 

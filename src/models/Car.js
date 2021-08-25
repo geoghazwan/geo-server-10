@@ -4,6 +4,13 @@ const CarSchema = new Schema({
   name: {
     type: String,
   },
+  function: {
+    type: String,
+  },
+  driver: {
+    type: Schema.Types.ObjectId,
+    ref: "Location",
+  },
   registerationDte: {
     type: { long: Date, default: Date.now },
     required: true,

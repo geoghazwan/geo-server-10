@@ -6,6 +6,8 @@ const connectDB = require("../config/database");
 /** Routes */
 const location = require("./routes/api/location");
 const car = require("./routes/api/car");
+const driver = require("./routes/api/driver");
+const port = 5000;
 
 /** Server Instance */
 const app = express();
@@ -19,10 +21,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/location", location);
 app.use("/api/car", car);
+app.use("/api/driver", driver);
 /** Run The App */
 
-const server = app.listen(3000, () =>
-  console.log(`Server started on port ${3000}`)
+const server = app.listen(port, () =>
+  console.log(`Server started on ports ${port}`)
 );
 
 module.exports = server;

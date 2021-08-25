@@ -17,16 +17,9 @@ const getAllData = async function () {
     console.log({ lat, lon, speed });
     return { lat, lon, speed };
   } catch (error) {
-    console.log({ Error: error });
+    return { lat: "33.493987191377556", lon: "36.31745004694769" };
   }
 };
 
-getAllData()
-  .then((data) => {
-    console.log({ ddddd: data });
-  })
-  .catch((error) => {
-    console.log({ error: error });
-  });
-
-module.exports = getGPS;
+module.exports.getGPS = getGPS;
+module.exports.getAllData = getAllData;
