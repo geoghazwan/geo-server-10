@@ -9,7 +9,9 @@ async function startCar() {
     );
     console.log({ oooooo: output });
     return output.stdout.replace("\n", "");
-  } catch {}
+  } catch (err) {
+    console.log({ errors: err });
+  }
 }
 
 module.exports = startCar;

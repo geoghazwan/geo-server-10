@@ -47,7 +47,6 @@ router.post("/create", async (req, res) => {
 });
 
 router.post("/start", async (req, res) => {
-  console.log({ request: req });
   const { lat, lon, speed } = await getAllData();
   await startCar();
 
