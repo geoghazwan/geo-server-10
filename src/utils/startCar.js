@@ -14,4 +14,6 @@ async function startCar() {
   }
 }
 
+startCar().then(console.log).catch(console.log);
+
 module.exports = startCar;
