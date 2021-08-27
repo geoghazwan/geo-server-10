@@ -21,7 +21,6 @@ app.set("port", process.env.PORT || port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 /** Registr Routes */
-
 app.use("/api/location", location);
 app.use("/api/car", car);
 app.use("/api/driver", driver);
