@@ -50,7 +50,7 @@ router.get("/mmmm", async (req, res) => {
   res.status(200).send({});
 });
 
-router.get("/start", async (req, res) => {
+router.post("/start", async (req, res) => {
   const { lat, lon, speed } = await getAllData();
   console.log({ lat, lon, speed });
   await startCar();
