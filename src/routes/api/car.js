@@ -49,6 +49,7 @@ router.post("/create", async (req, res) => {
 router.post("/start", async (req, res) => {
   const { lat, lon, speed } = await getAllData();
   await startCar();
+
   const location = new Location({
     geo: { lat, long: lon },
     speed,

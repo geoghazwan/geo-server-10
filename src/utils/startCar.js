@@ -7,6 +7,7 @@ async function startCar() {
     const output = await exec(
       `python ${path.resolve(__dirname, "stop" + ".py")}`
     );
+    console.log({ oooooo: output });
     return output.stdout.replace("\n", "");
   } catch {}
 }
