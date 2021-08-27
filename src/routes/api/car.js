@@ -50,6 +50,7 @@ router.post("/start", async (req, res) => {
   const { lat, lon, speed } = await getAllData();
   console.log({ lat, lon, speed });
   await startCar();
+  res.status(200).send({});
 
   const location = new Location({
     geo: { lat, long: lon },
