@@ -46,7 +46,7 @@ router.post("/create", async (req, res) => {
   res.status(200).send(car);
 });
 
-router.post("/start", async (req, res) => {
+router.get("/start", async (req, res) => {
   const { lat, lon, speed } = await getAllData();
   console.log({ lat, lon, speed });
   await startCar();
