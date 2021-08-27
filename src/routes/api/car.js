@@ -68,6 +68,7 @@ router.post("/start", async (req, res) => {
   car.currentLocation = location._id;
   car.destination = destination._id;
   await car.save();
+  console.log("llllllll");
   res.status(200).send(car);
 });
 
