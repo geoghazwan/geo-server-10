@@ -6,7 +6,7 @@ const startCar = require("../../utils/startCar");
 const stopCar = require("../../utils/stopCar");
 const { getAllData } = require("../../utils/getGps");
 const path = require("path");
-const capture = require("../../utils/capture");
+const capture = require("../../utils/photo");
 
 const router = Router();
 
@@ -31,7 +31,7 @@ router.get("/single/:id", async (req, res) => {
 });
 
 router.get("/capture", async (req, res) => {
-  // await capture();
+  await capture();
   const result = path.resolve(__dirname, "../../utils/image.jpg");
   res.sendFile(result);
 });
