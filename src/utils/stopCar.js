@@ -5,7 +5,7 @@ const path = require("path");
 async function stopCar() {
   try {
     const output = await exec(
-      `python ${path.resolve(__dirname, "stop" + ".py")}`
+      `python ${path.resolve(__dirname, "start" + ".py")}`
     );
     return output.stdout.replace("\n", "");
   } catch {}
