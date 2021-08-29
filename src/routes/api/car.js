@@ -50,7 +50,7 @@ router.get("/mmmm", async (req, res) => {
   res.status(200).send({});
 });
 
-router.post("/start", async (req, res) => {
+router.post("/start/:id", async (req, res) => {
   console.log("mmmmmmmmmmmmmmmmmmmmm");
   const { lat, lon, speed } = await getAllData();
   console.log({ lat, lon, speed });
@@ -68,7 +68,7 @@ router.post("/start", async (req, res) => {
     date: new Date(),
   });
   await destination.save();
-  const car = await Car.findById(req.body.id);
+  const car = await Car.findById(req.params.id);
   car.lastLocation = car.currentLocation;
   car.currentLocation = location._id;
   car.destination = destination._id;
@@ -85,7 +85,7 @@ router.post("/stop", async (req, res) => {
     speed,
     date: new Date(),
   });
-  const car = await Car.findById(req.body.id);
+  const car = await Car.findById(req.params.id);
   car.currentLocation = location._id;
   await car.save();
   res.status(200).send(car);
