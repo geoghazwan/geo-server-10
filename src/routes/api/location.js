@@ -1,6 +1,7 @@
 const { Router, Response } = require("express");
 const getGps = require("../../utils/getGps");
 const Location = require("../../models/Location");
+const { getAllData } = require("../../utils/getGps");
 
 const router = Router();
 
@@ -10,6 +11,11 @@ const santisizeLocation = (payload) => {
     date: new Date(),
   };
 };
+
+router.get("/get_location", async (req, res) => {
+  const { lat, lon } = await getAllData();
+  res.status(200).send({ geo: { lat, long: lon } });
+});
 
 router.post("/create", async (req, res) => {
   const payload = santisizeLocation(req.body);

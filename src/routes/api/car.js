@@ -46,14 +46,6 @@ router.post("/create", async (req, res) => {
   res.status(200).send(car);
 });
 
-router.get("/locate/:id", async (req, res) => {
-  console.log("sss");
-  const id = req.params.id;
-  const { lat, lon, speed } = await getAllData();
-  /** Send It Back To The User */
-  res.status(200).send({ location: { geo: { lat, long: lon } } });
-});
-
 router.get("/mmmm", async (req, res) => {
   res.status(200).send({});
 });
