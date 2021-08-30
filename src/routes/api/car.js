@@ -36,6 +36,12 @@ router.get("/capture", async (req, res) => {
   res.sendFile(result);
 });
 
+router.get("/www", async (req, res) => {
+  // const { lat, lon } = await getAllData();
+  const a = { lat: "33.493987191377556", long: "36.31745004694769", speed: 10 };
+  res.status(200).send({ geo: a });
+});
+
 router.post("/create", async (req, res) => {
   const payload = santisizeCar(req.body);
   /** New Location */

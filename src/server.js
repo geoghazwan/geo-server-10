@@ -28,12 +28,6 @@ app.use("/api/car", car);
 app.use("/api/driver", driver);
 app.use("/api/motor", motor);
 
-app.get("/loc", async (req, res) => {
-  const { lat, lon } = await getAllData();
-  const a = { lat: "33.493987191377556", long: "36.31745004694769", speed: 10 };
-  res.status(200).send({ geo: a });
-});
-
 /** Run The App */
 const server = app.listen(port, () =>
   console.log(`Server started on ports ${port}`)
