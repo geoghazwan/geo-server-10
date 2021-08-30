@@ -30,7 +30,8 @@ app.use("/api/motor", motor);
 
 app.get("/loc", async (req, res) => {
   const { lat, lon } = await getAllData();
-  res.status(200).send({ geo: { lat, long: lon } });
+  const a = { lat: "33.493987191377556", long: "36.31745004694769", speed: 10 };
+  res.status(200).send({ geo: a });
 });
 
 /** Run The App */
