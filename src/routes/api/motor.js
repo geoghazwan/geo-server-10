@@ -37,7 +37,6 @@ router.get("/start/:id", async (req, res) => {
 
 router.get("/stop/:id", async (req, res) => {
   await stopCar();
-  const { lat, lon, speed } = await getAllData();
   //   const location = new Location({
   //     geo: { lat, long: lon },
   //     speed,
