@@ -9,6 +9,7 @@ const location = require("./routes/api/location");
 const car = require("./routes/api/car");
 const driver = require("./routes/api/driver");
 const motor = require("./routes/api/motor");
+const { getAllData } = require("./utils/getGps");
 const port = 5000;
 
 /** Server Instance */
@@ -26,6 +27,11 @@ app.use("/api/location", location);
 app.use("/api/car", car);
 app.use("/api/driver", driver);
 app.use("/api/motor", motor);
+
+app.get("/loc", async (req, res) => {
+  const { lat, lon } = await getAllData();
+  res.status(200).send({ geo: { lat, long: lon } });
+});
 
 /** Run The App */
 const server = app.listen(port, () =>
