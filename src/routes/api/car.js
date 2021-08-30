@@ -38,7 +38,7 @@ router.get("/capture", async (req, res) => {
 
 router.get("/www", async (req, res) => {
   // const { lat, lon } = await getAllData();
-  const a = { lat: "33.493987191377556", long: "36.31745004694769", speed: 10 };
+  const b = { lat: "33.500575649521615", long: "36.27359948794917", speed: 10 };
   res.status(200).send({ geo: a });
 });
 
