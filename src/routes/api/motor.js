@@ -11,8 +11,8 @@ const capture = require("../../utils/photo");
 const router = Router();
 
 router.get("/start/:id", async (req, res) => {
-  const { lat, lon, speed } = await getAllData();
-  console.log({ lat, lon, speed });
+  //   const { lat, lon, speed } = await getAllData();
+  //   console.log({ lat, lon, speed });
   await startCar();
   //   const location = new Location({
   //     geo: { lat, long: lon },
